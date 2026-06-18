@@ -1,0 +1,37 @@
+[project]
+name = "Werim"
+version = "0.0.1"
+authors = [
+    {name="Pablo Duran", email="pdrm56@gmail.com"}
+]
+description = "Python API to calculate weather regimes using .nc datasets"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "netcdf4",
+    "scipy",
+    "xarray",
+    "cartopy",
+    "dask",
+]
+
+[project.urls]
+Source = "https://github.com/pabloduran016/werim"
+# Documentation = "https://spy4cast.readthedocs.io"
+
+[options]
+package_dir = "src"
+
+[build-system]
+requires = [
+    "setuptools>=42"
+]
+build-backend = "setuptools.build_meta"
+
