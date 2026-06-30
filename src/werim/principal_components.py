@@ -471,7 +471,7 @@ def plot_clusters_or_EOFs(
 
             ylim = sorted((lats.values[-1], lats.values[0]))
 
-            if levels is None and plot_type != "scatter":
+            if levels is None and plot_type != "scatter" and cluster_or_EOF in ("cluster", "EOF"):
                 levels = np.linspace(-1, +1, 20)
 
             if cluster_or_EOF == "cluster":

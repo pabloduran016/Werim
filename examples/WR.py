@@ -61,18 +61,23 @@ dsz = Dataset("Spain02_v5.0_DD_010reg_aa3d_pr.nc", folder=DATASETS_DIR).open().s
 ))
 
 z = Clim(dsz, "ts", group_season=False)
-z.plot(figsize=(8, 5))
+if False:
+    z.plot(figsize=(8, 5))
 
-pc.plot_IC(
-    extremes=z.data.values > np.percentile(z.data.values, 95),
-    time_mask=((pc.ds.time.dt.year >= dsz.region.year0) & (pc.ds.time.dt.year <= dsz.region.yearf)).values,
-)
+if False:
+    pc.plot_IC(
+        extremes=z.data.values > np.percentile(z.data.values, 95),
+        time_mask=((pc.ds.time.dt.year >= dsz.region.year0) & (pc.ds.time.dt.year <= dsz.region.yearf)).values,
+    )
 
 k = 4
 wr = WeatherRegimes(pc=pc, k=k)
 wr.save("wr_", DATA_DIR)
 # wr = WeatherRegimes.load("wr_", DATA_DIR, pc=pc)
-wr.plot()
-wr.plot_PCs()
+if False:
+    wr.plot()
+    wr.plot_PCs()
+
+wr.plot(plot_composed=True)
 
 plt.show()
