@@ -16,12 +16,12 @@ import cartopy.crs as ccrs
 
 import scipy.linalg as scipy_linalg
 import scipy.sparse.linalg as sparse_linalg
+import scipy.cluster as scipy_cluster
 
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure as Fig
 from matplotlib.axes import Axes as Ax
 from matplotlib import gridspec, ticker
-
 
 import spy4cast as sp
 import spy4cast.meteo as sp_meteo
