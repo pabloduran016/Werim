@@ -29,3 +29,5 @@ import spy4cast.spy4cast as sp_sp
 import spy4cast._procedure as sp_pr
 
 FArray = npt.NDArray[np.float32]
+BArray = npt.NDArray[np.bool]
+
