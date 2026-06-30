@@ -55,7 +55,7 @@ class WeatherRegimes(sp_pr._Procedure):
     def composed_maps(self) -> FArray:
         """Composed maps for each cluster"""
         comp = np.zeros((self.ds.shape[0], self.k), np.float32)
-        for i in range(comp.shape[0]):
+        for i in range(comp.shape[1]):
             comp[:, i] = np.mean(self.ds.data[:, self.index == i], axis=1)
         return comp
 
