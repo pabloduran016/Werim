@@ -42,7 +42,7 @@ alpha = 0.1
 
 # y = Preprocess(dsy, detrend=True, group_season=False)
 # y.save("y_", DATA_DIR)
-y = Preprocess.load("pre_", DATA_DIR)
+y = Preprocess.load("y_", DATA_DIR)
 if False:
     y.plot(timestamp="1940-03-01", figsize=(8, 6))
 
@@ -51,8 +51,11 @@ if False:
 pc = PrincipalComponents.load("pc_", DATA_DIR, ds=y)
 
 if True:
-    pc.plot()
-    pc.plot_PCs(nm=4)
+    pc.plot(save_fig=True, name="PC-eof.png", folder=PLOTS_DIR)
+    pc.plot_PCs(
+        nm=4,
+        save_fig=True, name="PC-series.png", folder=PLOTS_DIR,
+    )
 
 dsz = Dataset("Spain02_v5.0_DD_010reg_aa3d_pr.nc", folder=DATASETS_DIR).open().slice(Region(
     lat0=36.2, latf=43, lon0=-2, lonf=4,
@@ -71,13 +74,16 @@ if False:
     )
 
 k = 4
-wr = WeatherRegimes(pc=pc, k=k)
-wr.save("wr_", DATA_DIR)
-# wr = WeatherRegimes.load("wr_", DATA_DIR, pc=pc)
+# wr = WeatherRegimes(pc=pc, k=k)
+# wr.save("wr_", DATA_DIR)
+wr = WeatherRegimes.load("wr_", DATA_DIR, pc=pc)
 if False:
     wr.plot()
     wr.plot_PCs()
 
-wr.plot(plot_composed=True)
+wr.plot(
+    plot_composed=True,
+    save_fig=True, name="WR-composed.png", folder=PLOTS_DIR,
+)
 
 plt.show()
