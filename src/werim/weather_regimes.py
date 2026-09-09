@@ -43,12 +43,12 @@ class WeatherRegimes(sp_pr._Procedure):
     @property
     def clusters(self) -> FArray:
         """Centoroid map for each cluster"""
-        return np.dot(self.pc.cor, self.centroids.T)  # ns x k
+        return np.dot(self.pc.reg, self.centroids.T)  # ns x k
 
     @property
     def clusters_sig(self) -> FArray:
         """Centroid significant map for each cluster"""
-        return np.dot(self.pc.cor_sig, self.centroids.T)  # ns x k
+        return np.dot(self.pc.reg_sig, self.centroids.T)  # ns x k
 
     @property
     def composed_maps(self) -> FArray:
